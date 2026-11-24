@@ -63,7 +63,6 @@
       overflow-x: hidden;
     }
 
-    /* Header */
     header {
       background: var(--bg-panel);
       border-bottom: 1px solid var(--border);
@@ -154,10 +153,9 @@
       border-color: var(--accent);
     }
 
-    /* Main 3-Column Workspace */
     .workspace {
       display: grid;
-      grid-template-columns: 310px 1fr 330px;
+      grid-template-columns: 310px 1fr 350px;
       gap: 12px;
       padding: 12px;
       flex: 1;
@@ -188,7 +186,7 @@
     }
 
     .panel-title {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -200,7 +198,6 @@
       padding-bottom: 6px;
     }
 
-    /* Reagent Tabs & List */
     .tabs {
       display: flex;
       flex-wrap: wrap;
@@ -256,10 +253,11 @@
     }
 
     .reagent-dot {
-      width: 11px;
-      height: 11px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.45);
+      flex-shrink: 0;
     }
 
     .reagent-name {
@@ -273,7 +271,6 @@
       color: var(--text-muted);
     }
 
-    /* Center Bench & Canvas */
     .center-stage {
       background: var(--bg-panel);
       border: 1px solid var(--border);
@@ -320,7 +317,6 @@
       display: block;
     }
 
-    /* Sensor Bar */
     .sensors-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -351,13 +347,12 @@
     }
 
     .sensor-val {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       margin-top: 2px;
       color: var(--accent);
     }
 
-    /* Equipment Sliders */
     .control-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -387,38 +382,65 @@
       cursor: pointer;
     }
 
-    /* Reaction Output Box */
     .reaction-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-left: 4px solid var(--accent-2);
       border-radius: 8px;
-      padding: 10px;
+      padding: 11px;
       font-size: 0.84rem;
-      line-height: 1.45;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .result-banner {
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--text-main);
+      padding: 7px 9px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.84rem;
+    }
+
+    .color-swatch-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .swatch-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.45);
+      flex-shrink: 0;
     }
 
     .equation {
       font-family: 'Consolas', monospace;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--accent);
       background: var(--bg-panel);
-      padding: 6px 8px;
+      padding: 7px 9px;
       border-radius: 6px;
-      margin: 6px 0;
       word-break: break-word;
     }
 
     .badge {
       display: inline-block;
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 4px;
       font-size: 0.72rem;
       font-weight: 700;
-      background: rgba(16, 185, 129, 0.18);
-      color: var(--accent-2);
-      margin-bottom: 4px;
+      background: rgba(56, 189, 248, 0.18);
+      color: var(--accent);
+      width: fit-content;
     }
 
     .contents-pills {
@@ -438,7 +460,6 @@
       gap: 5px;
     }
 
-    /* Modals */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -502,7 +523,7 @@
       <option value="">⚡ Load Preset Experiment...</option>
       <option value="neutralization">1. Acid-Base Neutralization (HCl + NaOH + Phenolphthalein)</option>
       <option value="golden_rain">2. Golden Rain Precipitate (Pb(NO3)2 + KI)</option>
-      <option value="sodium_water">3. Alkali Metal Explosion (Na + H2O)</option>
+      <option value="sodium_water">3. Alkali Metal Reaction (Na + H2O)</option>
       <option value="elephant_toothpaste">4. Catalytic Decomposition (H2O2 + KI)</option>
       <option value="copper_silver">5. Single Displacement (Cu + AgNO3)</option>
       <option value="zinc_acid">6. Hydrogen Gas Evolution (Zn + H2SO4)</option>
@@ -512,8 +533,8 @@
       <option value="brown_no2">10. Copper & Nitric Acid (Cu + HNO3 → NO2 Brown Gas)</option>
       <option value="iodine_starch">11. Iodine-Starch Blue-Black Test (I2 + Starch)</option>
       <option value="luminol_glow">12. Chemiluminescence UV Glow (Luminol + H2O2)</option>
-      <option value="magnesium_burn">13. Bright White Flame Combustion (Mg + O2/Heat)</option>
-      <option value="sulfur_acid">14. Nonmetal Acid Formation (S + O2 + H2O)</option>
+      <option value="magnesium_burn">13. Bright White Flame Combustion (Mg + Heat)</option>
+      <option value="sulfur_acid">14. Sulfur Combustion (S + Heat)</option>
       <option value="barium_sulfate">15. White BaSO4 Precipitate (BaCl2 + Na2SO4)</option>
     </select>
 
@@ -552,7 +573,6 @@
 
     <div class="reagent-grid" id="reagent-list"></div>
 
-    <!-- Custom Chemical Adder -->
     <div class="control-card" style="margin-top:6px;">
       <div style="font-size:0.78rem; font-weight:700; color:var(--accent);">➕ Custom Chemical / Reagent</div>
       <div style="display:flex; gap:5px;">
@@ -664,11 +684,12 @@
     </div>
 
     <div class="panel-title">
-      <span>⚗️ Reaction Observation & Equation</span>
+      <span>⚗️ Reaction Results & Explanation</span>
     </div>
     <div class="reaction-box" id="reaction-output">
       <span class="badge">READY</span>
-      <div>Add reagents to the glassware to observe physical and chemical changes in real time.</div>
+      <div class="result-banner">No experiment running yet</div>
+      <div>Add reagents to the glassware, use the Bunsen burner or stirrer, or pick a preset experiment to see real lab colors, equations, and step-by-step explanations.</div>
     </div>
   </aside>
 </div>
@@ -719,7 +740,7 @@
       <li><strong>Select Glassware:</strong> Choose a Beaker, Erlenmeyer Flask, Volumetric Flask, or Test Tube.</li>
       <li><strong>Add Chemicals:</strong> Click or drag Acids, Bases, Salts, Metals, Nonmetals, or Indicators into the vessel.</li>
       <li><strong>Adjust Apparatus:</strong> Use the <em>Bunsen Burner</em> to heat mixtures, turn on the <em>Magnetic Stirrer</em>, or perform drop-by-drop <em>Titration</em>.</li>
-      <li><strong>Observe Sensors & Equations:</strong> Monitor live pH, temperature, conductivity, precipitates, gas fumes, flames, or UV glow.</li>
+      <li><strong>Read Results & Colors:</strong> Check the <em>Reaction Results & Explanation</em> panel for observable changes, real lab colors, and balanced equations.</li>
       <li><strong>Record & Practice:</strong> Save your findings to the <em>Lab Notebook</em> or test your knowledge in <em>Quiz Mode</em>.</li>
     </ol>
     <div style="margin-top:16px; text-align:right;">
@@ -730,265 +751,313 @@
 
 <script>
   // ==========================================
-  // 1. COMPREHENSIVE CHEMICAL DATABASE
+  // 1. REALISTIC LAB REAGENTS & COLORS
   // ==========================================
   const REAGENTS = [
-    // ACIDS
-    { id: 'HCl', formula: 'HCl', name: 'Hydrochloric Acid', cat: 'acid', state: 'liquid', color: 'rgba(224, 242, 254, 0.45)', ph: 1.0, cond: 8500, dose: 25 },
-    { id: 'H2SO4', formula: 'H₂SO₄', name: 'Sulfuric Acid', cat: 'acid', state: 'liquid', color: 'rgba(254, 249, 195, 0.5)', ph: 0.8, cond: 9800, dose: 25 },
-    { id: 'HNO3', formula: 'HNO₃', name: 'Nitric Acid', cat: 'acid', state: 'liquid', color: 'rgba(254, 243, 199, 0.5)', ph: 1.1, cond: 8200, dose: 25 },
-    { id: 'CH3COOH', formula: 'CH₃COOH', name: 'Acetic Acid', cat: 'acid', state: 'liquid', color: 'rgba(241, 245, 249, 0.45)', ph: 3.2, cond: 1400, dose: 25 },
-    { id: 'H3PO4', formula: 'H₃PO₄', name: 'Phosphoric Acid', cat: 'acid', state: 'liquid', color: 'rgba(226, 232, 240, 0.45)', ph: 2.1, cond: 4100, dose: 25 },
-    { id: 'H2CO3', formula: 'H₂CO₃', name: 'Carbonic Acid', cat: 'acid', state: 'liquid', color: 'rgba(207, 250, 254, 0.45)', ph: 4.5, cond: 900, dose: 25 },
+    // ACIDS (clear/colorless in real lab)
+    { id: 'HCl', formula: 'HCl', name: 'Hydrochloric Acid', cat: 'acid', state: 'liquid', color: 'rgba(226, 240, 252, 0.36)', colorLabel: 'Colorless aqueous solution', ph: 1.0, cond: 8500, dose: 25 },
+    { id: 'H2SO4', formula: 'H₂SO₄', name: 'Sulfuric Acid', cat: 'acid', state: 'liquid', color: 'rgba(241, 245, 249, 0.42)', colorLabel: 'Clear colorless oily liquid', ph: 0.8, cond: 9800, dose: 25 },
+    { id: 'HNO3', formula: 'HNO₃', name: 'Nitric Acid', cat: 'acid', state: 'liquid', color: 'rgba(254, 249, 195, 0.35)', colorLabel: 'Colorless to faint straw tint', ph: 1.1, cond: 8200, dose: 25 },
+    { id: 'CH3COOH', formula: 'CH₃COOH', name: 'Acetic Acid', cat: 'acid', state: 'liquid', color: 'rgba(241, 245, 249, 0.36)', colorLabel: 'Clear colorless liquid', ph: 3.2, cond: 1400, dose: 25 },
+    { id: 'H3PO4', formula: 'H₃PO₄', name: 'Phosphoric Acid', cat: 'acid', state: 'liquid', color: 'rgba(226, 232, 240, 0.38)', colorLabel: 'Clear colorless solution', ph: 2.1, cond: 4100, dose: 25 },
+    { id: 'H2CO3', formula: 'H₂CO₃', name: 'Carbonic Acid', cat: 'acid', state: 'liquid', color: 'rgba(224, 242, 254, 0.35)', colorLabel: 'Clear fizzy solution', ph: 4.5, cond: 900, dose: 25 },
 
     // BASES
-    { id: 'NaOH', formula: 'NaOH', name: 'Sodium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(219, 234, 254, 0.45)', ph: 13.5, cond: 8900, dose: 25 },
-    { id: 'KOH', formula: 'KOH', name: 'Potassium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(224, 231, 255, 0.45)', ph: 13.6, cond: 9100, dose: 25 },
-    { id: 'NH3', formula: 'NH₃ (aq)', name: 'Ammonium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(240, 253, 250, 0.45)', ph: 11.2, cond: 1800, dose: 25 },
-    { id: 'CaOH2', formula: 'Ca(OH)₂', name: 'Limewater', cat: 'base', state: 'liquid', color: 'rgba(248, 250, 252, 0.55)', ph: 12.4, cond: 4500, dose: 25 },
-    { id: 'MgOH2', formula: 'Mg(OH)₂', name: 'Milk of Magnesia', cat: 'base', state: 'liquid', color: 'rgba(255, 255, 255, 0.78)', ph: 10.5, cond: 1100, dose: 25 },
+    { id: 'NaOH', formula: 'NaOH', name: 'Sodium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(224, 242, 254, 0.36)', colorLabel: 'Clear colorless alkaline solution', ph: 13.5, cond: 8900, dose: 25 },
+    { id: 'KOH', formula: 'KOH', name: 'Potassium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(224, 242, 254, 0.36)', colorLabel: 'Clear colorless alkaline solution', ph: 13.6, cond: 9100, dose: 25 },
+    { id: 'NH3', formula: 'NH₃ (aq)', name: 'Ammonium Hydroxide', cat: 'base', state: 'liquid', color: 'rgba(236, 253, 245, 0.36)', colorLabel: 'Clear colorless solution', ph: 11.2, cond: 1800, dose: 25 },
+    { id: 'CaOH2', formula: 'Ca(OH)₂', name: 'Limewater', cat: 'base', state: 'liquid', color: 'rgba(241, 245, 249, 0.45)', colorLabel: 'Clear colorless solution', ph: 12.4, cond: 4500, dose: 25 },
+    { id: 'MgOH2', formula: 'Mg(OH)₂', name: 'Milk of Magnesia', cat: 'base', state: 'liquid', color: 'rgba(255, 255, 255, 0.88)', colorLabel: 'Milky white suspension', ph: 10.5, cond: 1100, dose: 25 },
 
-    // SALTS
-    { id: 'NaCl', formula: 'NaCl', name: 'Sodium Chloride', cat: 'salt', state: 'solid', color: '#f8fafc', ph: 7.0, cond: 6200, dose: 10 },
-    { id: 'CuSO4', formula: 'CuSO₄', name: 'Copper(II) Sulfate', cat: 'salt', state: 'liquid', color: 'rgba(14, 165, 233, 0.72)', ph: 4.8, cond: 5400, dose: 25 },
-    { id: 'AgNO3', formula: 'AgNO₃', name: 'Silver Nitrate', cat: 'salt', state: 'liquid', color: 'rgba(226, 232, 240, 0.45)', ph: 6.2, cond: 5800, dose: 25 },
-    { id: 'PbNO32', formula: 'Pb(NO₃)₂', name: 'Lead(II) Nitrate', cat: 'salt', state: 'liquid', color: 'rgba(241, 245, 249, 0.48)', ph: 5.5, cond: 5200, dose: 25 },
-    { id: 'KI', formula: 'KI', name: 'Potassium Iodide', cat: 'salt', state: 'liquid', color: 'rgba(254, 252, 232, 0.48)', ph: 7.0, cond: 6100, dose: 25 },
-    { id: 'KMnO4', formula: 'KMnO₄', name: 'Potassium Permanganate', cat: 'salt', state: 'liquid', color: 'rgba(147, 51, 234, 0.85)', ph: 7.2, cond: 5700, dose: 20 },
-    { id: 'FeCl3', formula: 'FeCl₃', name: 'Iron(III) Chloride', cat: 'salt', state: 'liquid', color: 'rgba(217, 119, 6, 0.75)', ph: 2.5, cond: 6400, dose: 25 },
-    { id: 'K4FeCN6', formula: 'K₄[Fe(CN)₆]', name: 'Pot. Ferrocyanide', cat: 'salt', state: 'liquid', color: 'rgba(253, 224, 71, 0.55)', ph: 7.4, cond: 6800, dose: 25 },
-    { id: 'NaHCO3', formula: 'NaHCO₃', name: 'Sodium Bicarbonate', cat: 'salt', state: 'solid', color: '#ffffff', ph: 8.3, cond: 3900, dose: 10 },
-    { id: 'CaCO3', formula: 'CaCO₃', name: 'Calcium Carbonate', cat: 'salt', state: 'solid', color: '#f1f5f9', ph: 8.5, cond: 450, dose: 10 },
-    { id: 'BaCl2', formula: 'BaCl₂', name: 'Barium Chloride', cat: 'salt', state: 'liquid', color: 'rgba(226, 232, 240, 0.45)', ph: 6.8, cond: 6000, dose: 25 },
-    { id: 'Na2SO4', formula: 'Na₂SO₄', name: 'Sodium Sulfate', cat: 'salt', state: 'liquid', color: 'rgba(241, 245, 249, 0.45)', ph: 7.0, cond: 6100, dose: 25 },
-    { id: 'CoCl2', formula: 'CoCl₂', name: 'Cobalt(II) Chloride', cat: 'salt', state: 'liquid', color: 'rgba(244, 63, 94, 0.72)', ph: 5.4, cond: 5500, dose: 25 },
+    // SALTS (real solution/solid colors)
+    { id: 'NaCl', formula: 'NaCl', name: 'Sodium Chloride', cat: 'salt', state: 'solid', color: '#ffffff', colorLabel: 'White crystalline grains', ph: 7.0, cond: 6200, dose: 10 },
+    { id: 'CuSO4', formula: 'CuSO₄', name: 'Copper(II) Sulfate', cat: 'salt', state: 'liquid', color: 'rgba(0, 150, 224, 0.82)', colorLabel: 'Vibrant azure / sky-blue solution', ph: 4.8, cond: 5400, dose: 25 },
+    { id: 'AgNO3', formula: 'AgNO₃', name: 'Silver Nitrate', cat: 'salt', state: 'liquid', color: 'rgba(226, 232, 240, 0.35)', colorLabel: 'Clear colorless solution', ph: 6.2, cond: 5800, dose: 25 },
+    { id: 'PbNO32', formula: 'Pb(NO₃)₂', name: 'Lead(II) Nitrate', cat: 'salt', state: 'liquid', color: 'rgba(241, 245, 249, 0.36)', colorLabel: 'Clear colorless solution', ph: 5.5, cond: 5200, dose: 25 },
+    { id: 'KI', formula: 'KI', name: 'Potassium Iodide', cat: 'salt', state: 'liquid', color: 'rgba(248, 250, 252, 0.38)', colorLabel: 'Clear colorless solution', ph: 7.0, cond: 6100, dose: 25 },
+    { id: 'KMnO4', formula: 'KMnO₄', name: 'Potassium Permanganate', cat: 'salt', state: 'liquid', color: 'rgba(112, 18, 138, 0.90)', colorLabel: 'Deep royal purple / magenta solution', ph: 7.2, cond: 5700, dose: 20 },
+    { id: 'FeCl3', formula: 'FeCl₃', name: 'Iron(III) Chloride', cat: 'salt', state: 'liquid', color: 'rgba(186, 108, 12, 0.85)', colorLabel: 'Golden-amber / reddish-brown solution', ph: 2.5, cond: 6400, dose: 25 },
+    { id: 'K4FeCN6', formula: 'K₄[Fe(CN)₆]', name: 'Pot. Ferrocyanide', cat: 'salt', state: 'liquid', color: 'rgba(234, 179, 8, 0.65)', colorLabel: 'Pale lemon-yellow solution', ph: 7.4, cond: 6800, dose: 25 },
+    { id: 'NaHCO3', formula: 'NaHCO₃', name: 'Sodium Bicarbonate', cat: 'salt', state: 'solid', color: '#ffffff', colorLabel: 'Fine white powder', ph: 8.3, cond: 3900, dose: 10 },
+    { id: 'CaCO3', formula: 'CaCO₃', name: 'Calcium Carbonate', cat: 'salt', state: 'solid', color: '#f8fafc', colorLabel: 'White chalky powder', ph: 8.5, cond: 450, dose: 10 },
+    { id: 'BaCl2', formula: 'BaCl₂', name: 'Barium Chloride', cat: 'salt', state: 'liquid', color: 'rgba(226, 232, 240, 0.35)', colorLabel: 'Clear colorless solution', ph: 6.8, cond: 6000, dose: 25 },
+    { id: 'Na2SO4', formula: 'Na₂SO₄', name: 'Sodium Sulfate', cat: 'salt', state: 'liquid', color: 'rgba(241, 245, 249, 0.35)', colorLabel: 'Clear colorless solution', ph: 7.0, cond: 6100, dose: 25 },
+    { id: 'CoCl2', formula: 'CoCl₂', name: 'Cobalt(II) Chloride', cat: 'salt', state: 'liquid', color: 'rgba(236, 72, 153, 0.78)', colorLabel: 'Rose-pink hydrated solution', ph: 5.4, cond: 5500, dose: 25 },
 
     // METALS
-    { id: 'Na', formula: 'Na (s)', name: 'Sodium Metal', cat: 'metal', state: 'solid', color: '#cbd5e1', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'K', formula: 'K (s)', name: 'Potassium Metal', cat: 'metal', state: 'solid', color: '#94a3b8', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Mg', formula: 'Mg (s)', name: 'Magnesium Ribbon', cat: 'metal', state: 'solid', color: '#e2e8f0', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Zn', formula: 'Zn (s)', name: 'Zinc Granules', cat: 'metal', state: 'solid', color: '#94a3b8', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Cu', formula: 'Cu (s)', name: 'Copper Turnings', cat: 'metal', state: 'solid', color: '#d97706', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Fe', formula: 'Fe (s)', name: 'Iron Filings', cat: 'metal', state: 'solid', color: '#475569', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Al', formula: 'Al (s)', name: 'Aluminum Foil', cat: 'metal', state: 'solid', color: '#cbd5e1', ph: 7.0, cond: 0, dose: 5 },
-    { id: 'Ca', formula: 'Ca (s)', name: 'Calcium Metal', cat: 'metal', state: 'solid', color: '#e2e8f0', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Na', formula: 'Na (s)', name: 'Sodium Metal', cat: 'metal', state: 'solid', color: '#d1d5db', colorLabel: 'Silvery-grey soft metal', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'K', formula: 'K (s)', name: 'Potassium Metal', cat: 'metal', state: 'solid', color: '#9ca3af', colorLabel: 'Dull silvery-grey metal', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Mg', formula: 'Mg (s)', name: 'Magnesium Ribbon', cat: 'metal', state: 'solid', color: '#e5e7eb', colorLabel: 'Shiny silvery metal strip', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Zn', formula: 'Zn (s)', name: 'Zinc Granules', cat: 'metal', state: 'solid', color: '#94a3b8', colorLabel: 'Bluish-silver metallic granules', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Cu', formula: 'Cu (s)', name: 'Copper Turnings', cat: 'metal', state: 'solid', color: '#c86d2d', colorLabel: 'Reddish-orange metallic copper', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Fe', formula: 'Fe (s)', name: 'Iron Filings', cat: 'metal', state: 'solid', color: '#4b5563', colorLabel: 'Dark grey metallic filings', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Al', formula: 'Al (s)', name: 'Aluminum Foil', cat: 'metal', state: 'solid', color: '#d1d5db', colorLabel: 'Bright silvery-white metal', ph: 7.0, cond: 0, dose: 5 },
+    { id: 'Ca', formula: 'Ca (s)', name: 'Calcium Metal', cat: 'metal', state: 'solid', color: '#e5e7eb', colorLabel: 'Silvery-grey alkaline earth metal', ph: 7.0, cond: 0, dose: 5 },
 
     // NONMETALS
-    { id: 'S', formula: 'S₈ (s)', name: 'Sulfur Powder', cat: 'nonmetal', state: 'solid', color: '#facc15', ph: 7.0, cond: 50, dose: 5 },
-    { id: 'C', formula: 'C (s)', name: 'Carbon / Charcoal', cat: 'nonmetal', state: 'solid', color: '#1e293b', ph: 7.0, cond: 120, dose: 5 },
-    { id: 'I2', formula: 'I₂ (s)', name: 'Iodine Crystals', cat: 'nonmetal', state: 'solid', color: '#581c87', ph: 6.5, cond: 250, dose: 5 },
-    { id: 'P', formula: 'P₄ (s)', name: 'Red Phosphorus', cat: 'nonmetal', state: 'solid', color: '#b91c1c', ph: 6.8, cond: 80, dose: 5 },
-    { id: 'Br2', formula: 'Br₂ (l)', name: 'Bromine Water', cat: 'nonmetal', state: 'liquid', color: 'rgba(180, 83, 9, 0.78)', ph: 5.8, cond: 600, dose: 15 },
-    { id: 'Cl2', formula: 'Cl₂ (aq)', name: 'Chlorine Water', cat: 'nonmetal', state: 'liquid', color: 'rgba(217, 249, 157, 0.55)', ph: 4.2, cond: 1200, dose: 20 },
+    { id: 'S', formula: 'S₈ (s)', name: 'Sulfur Powder', cat: 'nonmetal', state: 'solid', color: '#facc15', colorLabel: 'Bright canary-yellow powder', ph: 7.0, cond: 50, dose: 5 },
+    { id: 'C', formula: 'C (s)', name: 'Carbon / Charcoal', cat: 'nonmetal', state: 'solid', color: '#1f2937', colorLabel: 'Matte black solid', ph: 7.0, cond: 120, dose: 5 },
+    { id: 'I2', formula: 'I₂ (s)', name: 'Iodine Crystals', cat: 'nonmetal', state: 'solid', color: '#4c1d95', colorLabel: 'Dark violet-black metallic crystals', ph: 6.5, cond: 250, dose: 5 },
+    { id: 'P', formula: 'P₄ (s)', name: 'Red Phosphorus', cat: 'nonmetal', state: 'solid', color: '#b91c1c', colorLabel: 'Dark crimson-red powder', ph: 6.8, cond: 80, dose: 5 },
+    { id: 'Br2', formula: 'Br₂ (l)', name: 'Bromine Water', cat: 'nonmetal', state: 'liquid', color: 'rgba(180, 83, 9, 0.84)', colorLabel: 'Reddish-brown liquid', ph: 5.8, cond: 600, dose: 15 },
+    { id: 'Cl2', formula: 'Cl₂ (aq)', name: 'Chlorine Water', cat: 'nonmetal', state: 'liquid', color: 'rgba(190, 242, 100, 0.52)', colorLabel: 'Pale greenish-yellow solution', ph: 4.2, cond: 1200, dose: 20 },
 
     // INDICATORS
-    { id: 'Phenolphthalein', formula: 'C₂₀H₁₄O₄', name: 'Phenolphthalein', cat: 'indicator', state: 'liquid', color: 'rgba(255,255,255,0.25)', ph: 7.0, cond: 50, dose: 5 },
-    { id: 'MethylOrange', formula: 'C₁₄H₁₄N₃NaO₃S', name: 'Methyl Orange', cat: 'indicator', state: 'liquid', color: 'rgba(249, 115, 22, 0.7)', ph: 7.0, cond: 80, dose: 5 },
-    { id: 'UniversalInd', formula: 'UI', name: 'Universal Indicator', cat: 'indicator', state: 'liquid', color: 'rgba(16, 185, 129, 0.7)', ph: 7.0, cond: 90, dose: 5 },
-    { id: 'Starch', formula: '(C₆H₁₀O₅)ₙ', name: 'Starch Solution', cat: 'indicator', state: 'liquid', color: 'rgba(248, 250, 252, 0.55)', ph: 7.0, cond: 40, dose: 15 },
-    { id: 'Luminol', formula: 'C₈H₇N₃O₂', name: 'Luminol Reagent', cat: 'indicator', state: 'liquid', color: 'rgba(56, 189, 248, 0.45)', ph: 8.0, cond: 300, dose: 15 },
+    { id: 'Phenolphthalein', formula: 'C₂₀H₁₄O₄', name: 'Phenolphthalein', cat: 'indicator', state: 'liquid', color: 'rgba(248, 250, 252, 0.30)', colorLabel: 'Colorless (turns bright pink/magenta in base)', ph: 7.0, cond: 50, dose: 5 },
+    { id: 'MethylOrange', formula: 'C₁₄H₁₄N₃NaO₃S', name: 'Methyl Orange', cat: 'indicator', state: 'liquid', color: 'rgba(234, 88, 12, 0.78)', colorLabel: 'Orange (red in acid, yellow in base)', ph: 7.0, cond: 80, dose: 5 },
+    { id: 'UniversalInd', formula: 'UI', name: 'Universal Indicator', cat: 'indicator', state: 'liquid', color: 'rgba(22, 163, 74, 0.78)', colorLabel: 'Green at pH 7 (red acidic → violet basic)', ph: 7.0, cond: 90, dose: 5 },
+    { id: 'Starch', formula: '(C₆H₁₀O₅)ₙ', name: 'Starch Solution', cat: 'indicator', state: 'liquid', color: 'rgba(241, 245, 249, 0.45)', colorLabel: 'Translucent/cloudy white solution', ph: 7.0, cond: 40, dose: 15 },
+    { id: 'Luminol', formula: 'C₈H₇N₃O₂', name: 'Luminol Reagent', cat: 'indicator', state: 'liquid', color: 'rgba(186, 230, 253, 0.45)', colorLabel: 'Pale straw/colorless solution', ph: 8.0, cond: 300, dose: 15 },
 
     // SOLVENTS / OXIDIZERS
-    { id: 'H2O', formula: 'H₂O', name: 'Distilled Water', cat: 'solvent', state: 'liquid', color: 'rgba(186, 230, 253, 0.38)', ph: 7.0, cond: 5, dose: 40 },
-    { id: 'H2O2', formula: 'H₂O₂', name: 'Hydrogen Peroxide (30%)', cat: 'solvent', state: 'liquid', color: 'rgba(224, 242, 254, 0.45)', ph: 6.2, cond: 150, dose: 25 },
-    { id: 'C2H5OH', formula: 'C₂H₅OH', name: 'Ethanol', cat: 'solvent', state: 'liquid', color: 'rgba(241, 245, 249, 0.35)', ph: 7.0, cond: 15, dose: 25 }
+    { id: 'H2O', formula: 'H₂O', name: 'Distilled Water', cat: 'solvent', state: 'liquid', color: 'rgba(186, 230, 253, 0.34)', colorLabel: 'Clear colorless liquid', ph: 7.0, cond: 5, dose: 40 },
+    { id: 'H2O2', formula: 'H₂O₂', name: 'Hydrogen Peroxide (30%)', cat: 'solvent', state: 'liquid', color: 'rgba(224, 242, 254, 0.36)', colorLabel: 'Clear colorless liquid', ph: 6.2, cond: 150, dose: 25 },
+    { id: 'C2H5OH', formula: 'C₂H₅OH', name: 'Ethanol', cat: 'solvent', state: 'liquid', color: 'rgba(241, 245, 249, 0.32)', colorLabel: 'Clear colorless alcohol', ph: 7.0, cond: 15, dose: 25 }
   ];
 
   // ==========================================
-  // 2. REACTION RULES ENGINE
+  // 2. REACTION RULES WITH REAL LAB COLORS
   // ==========================================
   const REACTIONS = [
     {
-      requires: ['HCl', 'NaOH'],
-      type: 'Acid-Base Neutralization',
-      eq: 'HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)',
-      desc: 'Exothermic neutralization producing aqueous sodium chloride and water. Temperature rises slightly and pH approaches 7.',
-      tempDelta: 12,
-      phOverride: 7.0,
-      bubbles: false
-    },
-    {
       requires: ['PbNO32', 'KI'],
       type: 'Double Displacement (Precipitation)',
-      eq: 'Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq)',
-      desc: 'Classic "Golden Rain" reaction! Bright yellow Lead(II) iodide crystals precipitate out of solution and settle at the bottom.',
+      result: 'Bright canary-yellow precipitate of Lead(II) iodide ("Golden Rain") forms immediately.',
+      eq: 'Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ (Yellow) + 2KNO₃(aq)',
+      desc: 'Mixing colorless Lead(II) nitrate and Potassium iodide solutions produces insoluble yellow PbI₂ crystals that disperse like golden rain and settle at the bottom.',
       precipitate: '#facc15',
-      liquidColor: 'rgba(254, 240, 138, 0.45)',
+      liquidColor: 'rgba(253, 224, 71, 0.52)',
+      colorName: 'Canary Yellow suspension with golden-yellow precipitate',
       tempDelta: 3
     },
     {
       requires: ['Na', 'H2O'],
       type: 'Vigorous Alkali Metal Reaction',
+      result: 'Sodium skates on water, fizzes briskly with H₂ gas, burns with a golden-orange flame, and turns the water alkaline.',
       eq: '2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)↑',
-      desc: 'Sodium reacts violently with water, releasing flammable Hydrogen gas and heat that ignites an orange-yellow surface flame! Solution turns strongly alkaline.',
+      desc: 'Sodium reacts exothermically with water to release Hydrogen gas and Sodium hydroxide. Heat ignites the evolving hydrogen into a characteristic yellow-orange sodium flame.',
       bubbles: true,
-      bubbleColor: '#ffffff',
-      flame: '#fb923c',
+      flame: '#f97316',
+      liquidColor: 'rgba(224, 242, 254, 0.42)',
+      colorName: 'Clear alkaline NaOH solution with golden-orange surface flame',
       tempDelta: 65,
-      phOverride: 13.2
+      phOverride: 13.4
     },
     {
       requires: ['K', 'H2O'],
       type: 'Explosive Alkali Metal Reaction',
+      result: 'Potassium reacts violently with water, releasing H₂ gas with a lilac/violet flame and strongly alkaline solution.',
       eq: '2K(s) + 2H₂O(l) → 2KOH(aq) + H₂(g)↑',
-      desc: 'Potassium reacts even faster than sodium with water, producing a lilac/violet flame and rapid Hydrogen effervescence.',
+      desc: 'Potassium is more reactive than sodium; the heat generated produces a distinctive lilac-violet flame on the water surface.',
       bubbles: true,
-      flame: '#c084fc',
+      flame: '#a855f7',
+      liquidColor: 'rgba(224, 242, 254, 0.42)',
+      colorName: 'Clear alkaline KOH solution with lilac-violet flame',
       tempDelta: 75,
-      phOverride: 13.5
+      phOverride: 13.6
     },
     {
-      requires: ['H2O2', 'KI'],
-      type: 'Catalytic Decomposition (Elephant Toothpaste)',
-      eq: '2H₂O₂(aq) —[I⁻]→ 2H₂O(l) + O₂(g)↑',
-      desc: 'Iodide ions catalyze rapid decomposition of Hydrogen Peroxide into water and dense Oxygen gas bubbles with exothermic steam.',
+      requires: ['CuSO4', 'NaOH'],
+      type: 'Double Displacement (Hydroxide Precipitate)',
+      result: 'Royal-blue gelatinous precipitate of Copper(II) hydroxide forms.',
+      eq: 'CuSO₄(aq) (Blue) + 2NaOH(aq) → Cu(OH)₂(s)↓ (Royal Blue) + Na₂SO₄(aq)',
+      desc: 'Adding Sodium hydroxide to sky-blue Copper(II) sulfate yields an insoluble royal-blue precipitate of Cu(OH)₂.',
+      precipitate: '#1d4ed8',
+      liquidColor: 'rgba(37, 99, 235, 0.58)',
+      colorName: 'Royal blue precipitate in pale blue solution',
+      tempDelta: 4
+    },
+    {
+      requires: ['FeCl3', 'K4FeCN6'],
+      type: 'Coordination Complex Formation',
+      result: 'Deep Prussian Blue precipitate and intense dark blue coloration appear.',
+      eq: '4FeCl₃(aq) + 3K₄[Fe(CN)₆](aq) → Fe₄[Fe(CN)₆]₃(s)↓ (Prussian Blue) + 12KCl(aq)',
+      desc: 'Iron(III) ions react with ferrocyanide ions to form ferric ferrocyanide, famous for its rich, deep Prussian blue color.',
+      liquidColor: 'rgba(15, 44, 122, 0.92)',
+      precipitate: '#0f2c7a',
+      colorName: 'Deep Prussian blue',
+      tempDelta: 2
+    },
+    {
+      requires: ['Cu', 'HNO3'],
+      type: 'Redox Oxidation of Copper',
+      result: 'Blue-green copper nitrate solution forms along with dense reddish-brown NO₂ gas fumes.',
+      eq: 'Cu(s) + 4HNO₃(conc) → Cu(NO₃)₂(aq) (Blue-Green) + 2NO₂(g)↑ (Red-Brown) + 2H₂O(l)',
+      desc: 'Nitric acid oxidizes metallic copper into Cu²⁺ ions (giving a blue-green tint) while reducing nitrate to reddish-brown Nitrogen dioxide gas.',
+      liquidColor: 'rgba(13, 148, 136, 0.80)',
+      smoke: 'rgba(154, 52, 18, 0.85)',
       bubbles: true,
-      smoke: 'rgba(255,255,255,0.65)',
-      liquidColor: 'rgba(253, 224, 71, 0.55)',
-      tempDelta: 38
+      colorName: 'Blue-green liquid with reddish-brown NO₂ gas plumes',
+      tempDelta: 28
     },
     {
       requires: ['Cu', 'AgNO3'],
       type: 'Single Displacement Redox',
-      eq: 'Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s)↓',
-      desc: 'Copper displaces silver from solution: metallic silver crystals deposit while Cu²⁺ ions turn the solution sky-blue.',
-      liquidColor: 'rgba(14, 165, 233, 0.65)',
+      result: 'Solution turns sky-blue as Cu²⁺ forms while metallic silver crystals deposit.',
+      eq: 'Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) (Blue) + 2Ag(s)↓ (Silvery)',
+      desc: 'Because copper is higher in the reactivity series than silver, it displaces Ag⁺ ions out of solution as gleaming silver crystals.',
+      liquidColor: 'rgba(2, 132, 199, 0.72)',
       precipitate: '#e2e8f0',
+      colorName: 'Sky-blue solution with silvery metallic deposit',
       tempDelta: 6
+    },
+    {
+      requires: ['Fe', 'CuSO4'],
+      type: 'Metal Displacement Reaction',
+      result: 'Blue CuSO₄ color fades to pale green FeSO₄ and reddish-brown copper deposits.',
+      eq: 'Fe(s) + CuSO₄(aq) (Blue) → FeSO₄(aq) (Pale Green) + Cu(s)↓ (Red-Brown)',
+      desc: 'Iron displaces copper from Copper(II) sulfate, replacing blue Cu²⁺ ions with pale green Fe²⁺ ions and coating solid copper.',
+      liquidColor: 'rgba(134, 239, 172, 0.62)',
+      precipitate: '#b45309',
+      colorName: 'Pale green solution with reddish-brown copper',
+      tempDelta: 7
     },
     {
       requires: ['Zn', 'H2SO4'],
       type: 'Metal-Acid Single Displacement',
+      result: 'Brisk effervescence of colorless Hydrogen gas bubbles; solution remains clear.',
       eq: 'Zn(s) + H₂SO₄(aq) → ZnSO₄(aq) + H₂(g)↑',
-      desc: 'Zinc dissolves in dilute sulfuric acid, liberating brisk Hydrogen gas bubbles.',
+      desc: 'Zinc reacts with dilute sulfuric acid to form aqueous zinc sulfate and release bubbles of hydrogen gas.',
       bubbles: true,
+      liquidColor: 'rgba(226, 240, 252, 0.38)',
+      colorName: 'Clear colorless solution with rising gas bubbles',
       tempDelta: 15
     },
     {
       requires: ['Zn', 'HCl'],
       type: 'Metal-Acid Single Displacement',
+      result: 'Steady effervescence of Hydrogen gas bubbles in a clear solution.',
       eq: 'Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑',
-      desc: 'Effervescence of Hydrogen gas occurs as Zinc reacts with Hydrochloric Acid.',
+      desc: 'Zinc granules dissolve gradually in hydrochloric acid, producing soluble zinc chloride and hydrogen gas bubbles.',
       bubbles: true,
+      liquidColor: 'rgba(226, 240, 252, 0.38)',
+      colorName: 'Clear colorless solution with gas bubbles',
       tempDelta: 14
     },
     {
       requires: ['Mg', 'HCl'],
       type: 'Exothermic Metal-Acid Reaction',
-      eq: 'Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)↑',
-      desc: 'Magnesium ribbon reacts rapidly with acid, releasing abundant Hydrogen gas bubbles and heat.',
+      result: 'Rapid fizzing with Hydrogen gas bubbles and noticeable warmth.',
+      eq: 'Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)↑ + Heat',
+      desc: 'Magnesium reacts vigorously with hydrochloric acid, liberating hydrogen gas quickly and warming the mixture.',
       bubbles: true,
+      liquidColor: 'rgba(226, 240, 252, 0.38)',
+      colorName: 'Clear colorless solution with vigorous bubbles',
       tempDelta: 24
     },
     {
-      requires: ['FeCl3', 'K4FeCN6'],
-      type: 'Coordination Complex Formation',
-      eq: '4FeCl₃(aq) + 3K₄[Fe(CN)₆](aq) → Fe₄[Fe(CN)₆]₃(s)↓ + 12KCl(aq)',
-      desc: 'Forms an intense, deep Prussian Blue pigment precipitate.',
-      liquidColor: 'rgba(30, 58, 138, 0.92)',
-      precipitate: '#172554',
-      tempDelta: 2
-    },
-    {
-      requires: ['CuSO4', 'NaOH'],
-      type: 'Double Displacement (Hydroxide Precipitate)',
-      eq: 'CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s)↓ + Na₂SO₄(aq)',
-      desc: 'A gelatinous royal-blue precipitate of Copper(II) hydroxide forms immediately.',
-      precipitate: '#2563eb',
-      liquidColor: 'rgba(59, 130, 246, 0.45)',
-      tempDelta: 4
+      requires: ['H2O2', 'KI'],
+      type: 'Catalytic Decomposition',
+      result: 'Rapid foaming/bubbling of Oxygen gas with a warm yellow-amber iodine tint.',
+      eq: '2H₂O₂(aq) —[I⁻]→ 2H₂O(l) + O₂(g)↑',
+      desc: 'Iodide acts as a catalyst to decompose hydrogen peroxide rapidly into water and oxygen gas, generating heat and a slight yellow iodine tint.',
+      bubbles: true,
+      smoke: 'rgba(255,255,255,0.68)',
+      liquidColor: 'rgba(234, 179, 8, 0.55)',
+      colorName: 'Warm golden-yellow bubbly liquid with white vapor',
+      tempDelta: 38
     },
     {
       requires: ['NH3', 'HCl'],
       type: 'Gas-Phase Acid-Base Combination',
-      eq: 'NH₃(g) + HCl(g) → NH₄Cl(s) (White Smoke)',
-      desc: 'Ammonia and Hydrogen Chloride vapors combine to form dense white fumes of solid Ammonium Chloride.',
-      smoke: 'rgba(248, 250, 252, 0.85)',
+      result: 'Dense white smoke/fumes of solid Ammonium chloride form.',
+      eq: 'NH₃(g) + HCl(g) → NH₄Cl(s) (Dense White Fumes)',
+      desc: 'Ammonia and hydrogen chloride vapors react to form fine suspended solid particles of ammonium chloride, appearing as thick white smoke.',
+      smoke: 'rgba(248, 250, 252, 0.88)',
+      colorName: 'Dense white smoke plumes',
       tempDelta: 10
-    },
-    {
-      requires: ['Cu', 'HNO3'],
-      type: 'Redox Oxidation of Copper',
-      eq: 'Cu(s) + 4HNO₃(conc) → Cu(NO₃)₂(aq) + 2NO₂(g)↑ + 2H₂O(l)',
-      desc: 'Copper dissolves into a blue-green nitrate solution while evolving toxic reddish-brown Nitrogen Dioxide (NO₂) gas plumes.',
-      liquidColor: 'rgba(13, 148, 136, 0.78)',
-      smoke: 'rgba(180, 83, 9, 0.82)',
-      bubbles: true,
-      tempDelta: 28
     },
     {
       requires: ['I2', 'Starch'],
       type: 'Iodine-Starch Complexation',
-      eq: 'I₂ + Amylose (Starch) → Deep Blue-Black Charge-Transfer Complex',
-      desc: 'Triiodide ions slip inside the helical amylose coils of starch, producing a characteristic blue-black color.',
-      liquidColor: 'rgba(15, 23, 42, 0.94)',
+      result: 'Turns an intense deep blue-black color immediately.',
+      eq: 'I₂ + Starch (Amylose) → Deep Blue-Black Complex',
+      desc: 'Iodine molecules enter the coiled structure of amylose in starch, creating a classic deep blue-black color used to test for starch or iodine.',
+      liquidColor: 'rgba(10, 18, 48, 0.95)',
+      colorName: 'Deep blue-black',
       tempDelta: 0
     },
     {
       requires: ['Luminol', 'H2O2'],
       type: 'Chemiluminescence Oxidation',
-      eq: 'Luminol + H₂O₂ —[Catalyst]→ 3-APA* → 3-APA + hν (425 nm Blue Glow)',
-      desc: 'Excited 3-aminophthalate decays to ground state by emitting striking cyan-blue light (turn on UV Blacklight for maximum visibility!).',
-      liquidColor: 'rgba(56, 189, 248, 0.88)',
+      result: 'Emits a striking cyan-blue chemiluminescent glow.',
+      eq: 'Luminol + H₂O₂ → Excited 3-APA* → Ground State + Cyan-Blue Light (425 nm)',
+      desc: 'Oxidation of luminol by hydrogen peroxide produces an excited intermediate that releases visible cyan-blue light without needing a heat source.',
+      liquidColor: 'rgba(14, 165, 233, 0.88)',
       glow: true,
+      colorName: 'Glowing cyan-blue',
       tempDelta: 2
     },
     {
       requires: ['BaCl2', 'Na2SO4'],
       type: 'Sulfate Ion Qualitative Test',
-      eq: 'BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq)',
-      desc: 'Forms a dense, insoluble white precipitate of Barium Sulfate.',
+      result: 'Dense white precipitate of Barium sulfate forms immediately.',
+      eq: 'BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ (White) + 2NaCl(aq)',
+      desc: 'Barium ions and sulfate ions combine to form highly insoluble white barium sulfate.',
       precipitate: '#ffffff',
+      liquidColor: 'rgba(241, 245, 249, 0.68)',
+      colorName: 'Milky white precipitate in solution',
+      tempDelta: 2
+    },
+    {
+      requires: ['AgNO3', 'NaCl'],
+      type: 'Halide Precipitation Test',
+      result: 'Curdy white precipitate of Silver chloride forms instantly.',
+      eq: 'AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ (White) + NaNO₃(aq)',
+      desc: 'Mixing silver nitrate and sodium chloride produces a characteristic white precipitate of silver chloride.',
+      precipitate: '#f8fafc',
       liquidColor: 'rgba(241, 245, 249, 0.65)',
+      colorName: 'White precipitate in solution',
       tempDelta: 2
     },
     {
       requires: ['CaCO3', 'HCl'],
       type: 'Carbonate-Acid Effervescence',
+      result: 'Effervescence of Carbon dioxide gas bubbles as CaCO₃ dissolves.',
       eq: 'CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)↑',
-      desc: 'Brisk effervescence of Carbon Dioxide gas bubbles as Calcium Carbonate dissolves.',
+      desc: 'Acids react with metal carbonates to release carbon dioxide gas bubbles, water, and a soluble calcium salt.',
       bubbles: true,
+      liquidColor: 'rgba(226, 240, 252, 0.40)',
+      colorName: 'Clear solution with CO₂ gas bubbles',
       tempDelta: 6
     },
     {
       requires: ['NaHCO3', 'CH3COOH'],
-      type: 'Baking Soda & Vinegar Reaction',
+      type: 'Acid-Bicarbonate Reaction',
+      result: 'Fizzing CO₂ gas bubbles evolve with a slight cooling drop in temperature.',
       eq: 'NaHCO₃(s) + CH₃COOH(aq) → CH₃COONa(aq) + H₂O(l) + CO₂(g)↑',
-      desc: 'Endothermic foaming reaction releasing Carbon Dioxide gas bubbles.',
+      desc: 'Acetic acid neutralizes sodium bicarbonate, releasing carbon dioxide bubbles and absorbing a small amount of heat.',
       bubbles: true,
+      liquidColor: 'rgba(226, 240, 252, 0.40)',
+      colorName: 'Clear/foaming liquid with CO₂ bubbles',
       tempDelta: -4
     },
     {
-      requires: ['AgNO3', 'NaCl'],
-      type: 'Halide Precipitation Test',
-      eq: 'AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq)',
-      desc: 'A curdy white precipitate of Silver Chloride forms instantly.',
-      precipitate: '#f8fafc',
-      tempDelta: 2
-    },
-    {
-      requires: ['Fe', 'CuSO4'],
-      type: 'Metal Displacement Reaction',
-      eq: 'Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)↓',
-      desc: 'Iron displaces copper: the blue solution fades to pale green Iron(II) sulfate while reddish-brown copper coats the iron.',
-      liquidColor: 'rgba(134, 239, 172, 0.55)',
-      precipitate: '#b45309',
-      tempDelta: 7
+      requires: ['HCl', 'NaOH'],
+      type: 'Acid-Base Neutralization',
+      result: 'Neutralization occurs, forming aqueous NaCl and water (pH moves toward neutral).',
+      eq: 'HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)',
+      desc: 'Hydrogen ions (H⁺) from hydrochloric acid combine with hydroxide ions (OH⁻) from sodium hydroxide to form water, releasing heat.',
+      liquidColor: 'rgba(226, 240, 252, 0.36)',
+      colorName: 'Clear colorless solution (or bright pink if Phenolphthalein is present in excess base)',
+      tempDelta: 12,
+      phOverride: 7.0
     }
   ];
 
   // ==========================================
-  // 3. LAB STATE & AUDIO SYNTHESIZER
+  // 3. STATE & AUDIO
   // ==========================================
   const state = {
     vessel: 'beaker',
-    contents: [], // { id, formula, name, cat, state, color, ph, cond, amount }
+    contents: [],
     burnerTemp: 25,
     currentTemp: 25,
     stirrerRpm: 0,
     uvMode: false,
     soundOn: true,
-    liquidColor: 'rgba(186, 230, 253, 0.45)',
+    liquidColor: 'rgba(186, 230, 253, 0.36)',
+    colorDescription: 'Clear colorless',
     precipitateColor: null,
     precipitateHeight: 0,
     hasBubbles: false,
@@ -999,8 +1068,7 @@
     wavePhase: 0,
     stirAngle: 0,
     bubbles: [],
-    smokes: [],
-    sparks: []
+    smokes: []
   };
 
   let audioCtx = null;
@@ -1035,7 +1103,7 @@
   }
 
   // ==========================================
-  // 4. RENDER REAGENT CABINET & VESSEL LOGIC
+  // 4. REAGENT CABINET RENDERING
   // ==========================================
   const reagentListEl = document.getElementById('reagent-list');
   const searchInput = document.getElementById('search-reagent');
@@ -1056,7 +1124,7 @@
       card.innerHTML = `
         <div class="reagent-top">
           <span class="reagent-formula">${r.formula}</span>
-          <span class="reagent-dot" style="background:${r.color};"></span>
+          <span class="reagent-dot" style="background:${r.color};" title="${r.colorLabel}"></span>
         </div>
         <div class="reagent-name">${r.name}</div>
         <div class="reagent-meta">${r.cat.toUpperCase()} • +${r.dose} mL</div>
@@ -1094,6 +1162,7 @@
       cat,
       state: (cat === 'metal' || cat === 'nonmetal') ? 'solid' : 'liquid',
       color,
+      colorLabel: `Custom ${cat} color`,
       ph: cat === 'acid' ? 2.0 : cat === 'base' ? 12.0 : 7.0,
       cond: cat === 'salt' || cat === 'acid' || cat === 'base' ? 4000 : 100,
       dose: 20
@@ -1118,13 +1187,12 @@
   }
 
   // ==========================================
-  // 5. CHEMISTRY SOLVER & SENSOR CALCULATOR
+  // 5. CHEMISTRY EVALUATION & EXPLANATIONS
   // ==========================================
   function evaluateChemistry() {
     const ids = state.contents.map(c => c.id);
     const totalVol = state.contents.reduce((sum, c) => sum + c.amount, 0);
 
-    // Update Contents Pills
     const contentsEl = document.getElementById('vessel-contents');
     if (state.contents.length === 0) {
       contentsEl.innerHTML = '<span style="font-size:0.8rem; color:var(--text-muted);">Vessel is empty. Click or drag chemicals to begin.</span>';
@@ -1137,18 +1205,19 @@
       `).join('');
     }
 
-    if (totalVol === 0) {
+    if (totalVol === 0 && state.burnerTemp <= 25) {
       state.precipitateColor = null;
       state.precipitateHeight = 0;
       state.hasBubbles = false;
       state.smokeColor = null;
       state.flameColor = null;
       state.glowEffect = false;
-      state.currentTemp = state.burnerTemp;
+      state.currentTemp = 25;
       updateSensors(0, 7.0, 0);
       document.getElementById('reaction-output').innerHTML = `
         <span class="badge">READY</span>
-        <div>Add reagents to the glassware to observe physical and chemical changes in real time.</div>
+        <div class="result-banner">No experiment running yet</div>
+        <div>Add reagents to the glassware, use the Bunsen burner or stirrer, or pick a preset experiment to see real lab colors, equations, and step-by-step explanations.</div>
       `;
       return;
     }
@@ -1159,7 +1228,7 @@
     let totalCond = 0;
 
     state.contents.forEach(c => {
-      totalCond += c.cond * (c.amount / totalVol);
+      totalCond += c.cond * (c.amount / Math.max(1, totalVol));
       if (c.ph < 7) {
         hPlus += Math.pow(10, -c.ph) * c.amount;
       } else if (c.ph > 7) {
@@ -1168,15 +1237,33 @@
     });
 
     let calcPh = 7.0;
-    if (hPlus > ohMinus * 1.05) {
+    if (hPlus > ohMinus * 1.05 && totalVol > 0) {
       const concH = (hPlus - ohMinus) / totalVol;
       calcPh = Math.max(0.5, Math.min(6.9, -Math.log10(concH)));
-    } else if (ohMinus > hPlus * 1.05) {
+    } else if (ohMinus > hPlus * 1.05 && totalVol > 0) {
       const concOH = (ohMinus - hPlus) / totalVol;
       calcPh = Math.min(13.8, Math.max(7.1, 14 + Math.log10(concOH)));
     }
 
-    // Check Known Reactions
+    // Reset dynamic effects
+    state.precipitateColor = null;
+    state.precipitateHeight = 0;
+    state.hasBubbles = false;
+    state.smokeColor = null;
+    state.flameColor = null;
+    state.glowEffect = false;
+
+    const liquids = state.contents.filter(c => c.state === 'liquid');
+    if (liquids.length > 0) {
+      const lastLiq = liquids[liquids.length - 1];
+      state.liquidColor = lastLiq.color;
+      state.colorDescription = lastLiq.colorLabel;
+    } else {
+      state.liquidColor = 'rgba(148, 163, 184, 0.25)';
+      state.colorDescription = 'Solid sample (no liquid yet)';
+    }
+
+    // Find best matching reaction rule
     let matched = null;
     for (const rx of REACTIONS) {
       if (rx.requires.every(req => ids.includes(req))) {
@@ -1185,29 +1272,18 @@
       }
     }
 
-    // Reset dynamic effects before applying match
-    state.precipitateColor = null;
-    state.precipitateHeight = 0;
-    state.hasBubbles = false;
-    state.smokeColor = null;
-    state.flameColor = null;
-    state.glowEffect = false;
-
-    // Base blended liquid color
-    const liquids = state.contents.filter(c => c.state === 'liquid');
-    if (liquids.length > 0) {
-      state.liquidColor = liquids[liquids.length - 1].color;
-    } else {
-      state.liquidColor = 'rgba(148, 163, 184, 0.35)';
-    }
-
     let rxTempDelta = 0;
+    let badgeText = 'OBSERVATION';
+    let resultText = '';
+    let equationText = '';
+    let explanationText = '';
 
     if (matched) {
       playTone('react');
       rxTempDelta = matched.tempDelta || 0;
       if (matched.phOverride !== undefined) calcPh = matched.phOverride;
       if (matched.liquidColor) state.liquidColor = matched.liquidColor;
+      if (matched.colorName) state.colorDescription = matched.colorName;
       if (matched.precipitate) {
         state.precipitateColor = matched.precipitate;
         state.precipitateHeight = 16;
@@ -1217,67 +1293,128 @@
       if (matched.flame) state.flameColor = matched.flame;
       if (matched.glow) state.glowEffect = true;
 
-      document.getElementById('reaction-output').innerHTML = `
-        <span class="badge">${matched.type}</span>
-        <div class="equation">${matched.eq}</div>
-        <div>${matched.desc}</div>
-      `;
+      badgeText = matched.type;
+      resultText = matched.result;
+      equationText = matched.eq;
+      explanationText = matched.desc;
+    } else if (state.burnerTemp >= 350 && ids.includes('Mg')) {
+      state.flameColor = '#ffffff';
+      state.smokeColor = 'rgba(255,255,255,0.88)';
+      state.precipitateColor = '#ffffff';
+      state.precipitateHeight = 12;
+      state.colorDescription = 'Dazzling white flame & white MgO ash';
+      rxTempDelta = 80;
+      badgeText = 'Thermal Combustion';
+      resultText = 'Magnesium burns with an intense white flame, leaving white Magnesium oxide powder.';
+      equationText = '2Mg(s) + O₂(g) —[Heat]→ 2MgO(s) (White Ash) + Bright Light';
+      explanationText = 'When heated strongly, magnesium oxidizes rapidly in air, releasing bright light and forming a white ionic solid (MgO).';
+    } else if (state.burnerTemp >= 300 && ids.includes('S')) {
+      state.flameColor = '#3b82f6';
+      state.smokeColor = 'rgba(226,232,240,0.75)';
+      state.colorDescription = 'Pale blue flame with Sulfur dioxide gas';
+      rxTempDelta = 40;
+      badgeText = 'Nonmetal Combustion';
+      resultText = 'Sulfur melts to a dark red-orange liquid and burns with a pale blue flame.';
+      equationText = 'S₈(s) + 8O₂(g) —[Heat]→ 8SO₂(g)↑';
+      explanationText = 'Heating sulfur above its melting point and ignition temperature oxidizes it to sulfur dioxide gas while emitting a characteristic blue flame.';
+    } else if (state.burnerTemp >= 100 && totalVol > 0) {
+      state.hasBubbles = true;
+      state.smokeColor = 'rgba(255,255,255,0.5)';
+      state.colorDescription = `${state.colorDescription} (boiling with steam)`;
+      badgeText = 'Boiling / Vaporization';
+      resultText = 'The liquid reaches boiling point, producing rising bubbles and steam.';
+      equationText = 'Liquid(l) —[≥ 100°C]→ Vapor(g)↑';
+      explanationText = 'Thermal energy from the Bunsen burner overcomes intermolecular attractions, turning liquid into vapor bubbles and steam.';
+    } else if (state.contents.length === 1) {
+      const only = state.contents[0];
+      badgeText = `Single Reagent (${only.cat.toUpperCase()})`;
+      resultText = `${only.name} (${only.formula}) is in the ${state.vessel} (${only.colorLabel}).`;
+      equationText = `${only.formula} (${only.state === 'liquid' ? 'aq/l' : 's'})`;
+      explanationText = `No chemical reaction occurs yet with a single reagent alone. Add a second chemical (such as an acid, base, salt, metal, or indicator) or apply heat/stirring to observe a reaction.`;
     } else {
-      // Check High Heat Combustion / Thermal Decomposition
-      if (state.burnerTemp >= 350 && ids.includes('Mg')) {
-        state.flameColor = '#ffffff';
-        state.smokeColor = 'rgba(255,255,255,0.85)';
-        state.precipitateColor = '#f8fafc';
-        state.precipitateHeight = 12;
-        document.getElementById('reaction-output').innerHTML = `
-          <span class="badge">Thermal Combustion</span>
-          <div class="equation">2Mg(s) + O₂(g) —[Δ]→ 2MgO(s) + Bright White Light</div>
-          <div>Magnesium ignites at high burner temperature, emitting intense white light and leaving white Magnesium Oxide ash.</div>
-        `;
-      } else if (state.burnerTemp >= 300 && ids.includes('S')) {
-        state.flameColor = '#3b82f6';
-        state.smokeColor = 'rgba(226,232,240,0.75)';
-        document.getElementById('reaction-output').innerHTML = `
-          <span class="badge">Nonmetal Combustion</span>
-          <div class="equation">S₈(s) + 8O₂(g) —[Δ]→ 8SO₂(g)↑</div>
-          <div>Sulfur burns with a pale blue flame, producing pungent Sulfur Dioxide gas.</div>
-        `;
-      } else if (state.burnerTemp >= 100 && totalVol > 0) {
+      // General / Custom Multi-Reagent Combination
+      const formulas = state.contents.map(c => c.formula).join(' + ');
+      const hasAcid = state.contents.some(c => c.cat === 'acid');
+      const hasBase = state.contents.some(c => c.cat === 'base');
+      const hasMetal = state.contents.some(c => c.cat === 'metal');
+
+      if (hasAcid && hasBase) {
+        rxTempDelta = 10;
+        calcPh = 7.0;
+        badgeText = 'Acid-Base Reaction';
+        resultText = 'Acid and base neutralize each other, forming a salt and water with a mild temperature rise.';
+        equationText = `${formulas} → Salt + H₂O`;
+        explanationText = 'Protons (H⁺) from the acid react with hydroxide ions (OH⁻) from the base to form water, shifting pH toward neutrality.';
+      } else if (hasMetal && hasAcid) {
         state.hasBubbles = true;
-        state.smokeColor = 'rgba(255,255,255,0.45)';
-        document.getElementById('reaction-output').innerHTML = `
-          <span class="badge">Boiling / Vaporization</span>
-          <div class="equation">Mixture(l) —[Heat ≥ 100°C]→ Vapor(g)↑</div>
-          <div>Thermal energy causes rapid boiling bubbles and steam evolution.</div>
-        `;
+        rxTempDelta = 14;
+        badgeText = 'Metal + Acid Reaction';
+        resultText = 'Gas bubbles evolve as the metal reacts with the acid solution.';
+        equationText = `${formulas} → Metal Salt + H₂(g)↑`;
+        explanationText = 'Reactive metals above hydrogen in the reactivity series displace hydrogen ions from acid, releasing hydrogen gas bubbles.';
       } else {
-        const formulas = state.contents.map(c => c.formula).join(' + ');
-        document.getElementById('reaction-output').innerHTML = `
-          <span class="badge">Physical Mixture / Solution</span>
-          <div class="equation">${formulas} → Homogeneous / Heterogeneous Mix</div>
-          <div>Components are combined in the ${state.vessel}. Try heating with the Bunsen burner, stirring, or adding an acid, base, or indicator.</div>
-        `;
+        badgeText = 'Mixture / Physical Blend';
+        resultText = `Combined ${formulas} in the ${state.vessel}; current appearance is ${state.colorDescription.toLowerCase()}.`;
+        equationText = `${formulas} → Mixture`;
+        explanationText = `These reagents are mixed together in the vessel. Check the live pH, conductivity, and temperature sensors or add another reagent/indicator to test for specific ions.`;
       }
     }
 
-    // Apply Indicator Color Shifts
+    // Apply Indicator Color Overrides (so HCl + NaOH + Phenolphthalein shows real pink!)
     if (ids.includes('Phenolphthalein')) {
-      if (calcPh >= 8.2) state.liquidColor = 'rgba(236, 72, 153, 0.85)'; // Magenta Pink
-    }
-    if (ids.includes('MethylOrange')) {
-      if (calcPh < 3.5) state.liquidColor = 'rgba(239, 68, 68, 0.85)'; // Red
-      else if (calcPh > 4.5) state.liquidColor = 'rgba(250, 204, 21, 0.82)'; // Yellow
-    }
-    if (ids.includes('UniversalInd')) {
-      if (calcPh < 3) state.liquidColor = 'rgba(239, 68, 68, 0.85)';
-      else if (calcPh < 6) state.liquidColor = 'rgba(249, 115, 22, 0.82)';
-      else if (calcPh <= 7.5) state.liquidColor = 'rgba(34, 197, 94, 0.82)';
-      else if (calcPh < 11) state.liquidColor = 'rgba(59, 130, 246, 0.82)';
-      else state.liquidColor = 'rgba(126, 34, 206, 0.85)';
+      if (calcPh >= 8.2) {
+        state.liquidColor = 'rgba(236, 72, 153, 0.88)';
+        state.colorDescription = 'Bright pink / magenta (Phenolphthalein in alkaline pH ≥ 8.2)';
+        resultText += ' Phenolphthalein turns bright pink/magenta because the solution is basic.';
+      } else {
+        state.liquidColor = 'rgba(226, 240, 252, 0.36)';
+        state.colorDescription = 'Colorless (Phenolphthalein in acidic/neutral pH < 8.2)';
+        resultText += ' Phenolphthalein stays colorless in acidic/neutral conditions.';
+      }
     }
 
-    state.currentTemp = Math.min(850, state.burnerTemp + rxTempDelta);
+    if (ids.includes('MethylOrange')) {
+      if (calcPh < 3.5) {
+        state.liquidColor = 'rgba(220, 38, 38, 0.86)';
+        state.colorDescription = 'Red (Methyl Orange in strong acid pH < 3.5)';
+      } else if (calcPh > 4.5) {
+        state.liquidColor = 'rgba(234, 179, 8, 0.84)';
+        state.colorDescription = 'Yellow (Methyl Orange above acidic range)';
+      }
+    }
+
+    if (ids.includes('UniversalInd')) {
+      if (calcPh < 3) {
+        state.liquidColor = 'rgba(220, 38, 38, 0.86)';
+        state.colorDescription = 'Red (Strongly acidic, Universal Indicator)';
+      } else if (calcPh < 6) {
+        state.liquidColor = 'rgba(249, 115, 22, 0.84)';
+        state.colorDescription = 'Orange (Weakly acidic, Universal Indicator)';
+      } else if (calcPh <= 7.5) {
+        state.liquidColor = 'rgba(22, 163, 74, 0.84)';
+        state.colorDescription = 'Green (Neutral pH ~7, Universal Indicator)';
+      } else if (calcPh < 11) {
+        state.liquidColor = 'rgba(37, 99, 235, 0.84)';
+        state.colorDescription = 'Blue (Weakly alkaline, Universal Indicator)';
+      } else {
+        state.liquidColor = 'rgba(126, 34, 206, 0.88)';
+        state.colorDescription = 'Violet/Purple (Strongly alkaline, Universal Indicator)';
+      }
+    }
+
+    state.currentTemp = Math.min(850, Math.max(15, state.burnerTemp + rxTempDelta));
     updateSensors(totalVol, calcPh, Math.round(totalCond));
+
+    document.getElementById('reaction-output').innerHTML = `
+      <span class="badge">${badgeText}</span>
+      <div class="result-banner"><strong>Result:</strong> ${resultText}</div>
+      <div class="color-swatch-row">
+        <span class="swatch-box" style="background:${state.precipitateColor || state.liquidColor};"></span>
+        <span><strong>Observed Color:</strong> ${state.colorDescription}</span>
+      </div>
+      <div class="equation">${equationText}</div>
+      <div><strong>Explanation:</strong> ${explanationText}</div>
+    `;
   }
 
   function updateSensors(vol, ph, cond) {
@@ -1289,7 +1426,7 @@
   }
 
   // ==========================================
-  // 6. HIGH-DPI CANVAS PHYSICS ENGINE
+  // 6. CANVAS RENDERER
   // ==========================================
   const canvas = document.getElementById('lab-canvas');
   const ctx = canvas.getContext('2d');
@@ -1305,7 +1442,6 @@
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  // Drag-and-drop onto canvas
   canvasWrap.addEventListener('dragover', e => e.preventDefault());
   canvasWrap.addEventListener('drop', e => {
     e.preventDefault();
@@ -1339,7 +1475,6 @@
       p.lineTo(cx + 18, bottomY - 135);
       p.lineTo(cx + 18, bottomY - 240);
     } else {
-      // Test tube
       p.moveTo(cx - 34, bottomY - 230);
       p.lineTo(cx - 34, bottomY - 34);
       p.arc(cx, bottomY - 34, 34, Math.PI, 0, true);
@@ -1357,19 +1492,16 @@
     const benchY = h - 48;
     const vesselBottomY = benchY - (state.burnerTemp > 25 ? 36 : 4);
 
-    // Draw Lab Bench Surface
     ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--bench-top');
     ctx.fillRect(0, benchY, w, 48);
     ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--bench-edge');
     ctx.fillRect(0, benchY, w, 5);
 
-    // Draw Bunsen Burner if active
     if (state.burnerTemp > 25) {
       ctx.fillStyle = '#475569';
       ctx.fillRect(cx - 35, benchY - 8, 70, 8);
       ctx.fillRect(cx - 8, benchY - 32, 16, 24);
 
-      // Animated Bunsen Flame
       const flameH = 16 + (state.burnerTemp / 800) * 24 + Math.sin(Date.now() * 0.02) * 3;
       const grad = ctx.createRadialGradient(cx, benchY - 34, 2, cx, benchY - 34 - flameH / 2, flameH);
       grad.addColorStop(0, '#ffffff');
@@ -1385,7 +1517,6 @@
     const fillRatio = Math.min(0.88, totalVol / 250);
     const vesselPath = getVesselPath(cx, vesselBottomY, state.vessel);
 
-    // Clip inside vessel for liquid, solids, bubbles & stirrer
     ctx.save();
     ctx.clip(vesselPath);
 
@@ -1394,7 +1525,6 @@
       const liquidTopY = vesselBottomY - liquidHeight;
       state.wavePhase += 0.05 + (state.stirrerRpm / 1200) * 0.18;
 
-      // Liquid Body with Meniscus Wave
       ctx.beginPath();
       ctx.moveTo(cx - 120, vesselBottomY + 10);
       ctx.lineTo(cx - 120, liquidTopY);
@@ -1414,13 +1544,11 @@
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Precipitate Layer at Bottom
       if (state.precipitateColor && state.precipitateHeight > 0) {
         ctx.fillStyle = state.precipitateColor;
         ctx.fillRect(cx - 110, vesselBottomY - state.precipitateHeight, 220, state.precipitateHeight + 5);
       }
 
-      // Solid Metal / Nonmetal Chunks at Bottom
       const solids = state.contents.filter(c => c.state === 'solid');
       solids.forEach((s, idx) => {
         ctx.fillStyle = s.color;
@@ -1429,7 +1557,6 @@
         ctx.fill();
       });
 
-      // Rotating Magnetic Stirrer Pill
       if (state.stirrerRpm > 0) {
         state.stirAngle += (state.stirrerRpm / 1200) * 0.35;
         const barW = 28 * Math.abs(Math.cos(state.stirAngle)) + 6;
@@ -1439,7 +1566,6 @@
         ctx.fill();
       }
 
-      // Effervescence Bubbles
       if (state.hasBubbles && Math.random() < 0.45) {
         state.bubbles.push({
           x: cx + (Math.random() - 0.5) * 90,
@@ -1449,7 +1575,7 @@
         });
       }
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.72)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
       state.bubbles.forEach((b, i) => {
         b.y -= b.vy;
         b.x += Math.sin(b.y * 0.08) * 0.6;
@@ -1459,7 +1585,6 @@
         if (b.y < liquidTopY) state.bubbles.splice(i, 1);
       });
 
-      // Surface Reaction Flame (e.g., Sodium in Water)
       if (state.flameColor) {
         const fH = 26 + Math.random() * 14;
         ctx.fillStyle = state.flameColor;
@@ -1470,15 +1595,14 @@
     }
     ctx.restore();
 
-    // Smoke / Gas Plumes Rising Above Vessel
-    if (state.smokeColor && totalVol > 0) {
+    if (state.smokeColor && (totalVol > 0 || state.burnerTemp >= 300)) {
       if (Math.random() < 0.35) {
         state.smokes.push({
           x: cx + (Math.random() - 0.5) * 40,
           y: vesselBottomY - 180,
           r: 10 + Math.random() * 12,
           vy: 0.9 + Math.random() * 1.1,
-          alpha: 0.75
+          alpha: 0.78
         });
       }
     }
@@ -1496,12 +1620,10 @@
       if (sm.alpha <= 0) state.smokes.splice(i, 1);
     });
 
-    // Draw Glassware Outline & Graduation Ticks
     ctx.strokeStyle = state.uvMode ? '#a78bfa' : 'rgba(226, 232, 240, 0.85)';
     ctx.lineWidth = 3;
     ctx.stroke(vesselPath);
 
-    // Graduation markings
     ctx.strokeStyle = 'rgba(148, 163, 184, 0.55)';
     ctx.lineWidth = 1.5;
     for (let m = 1; m <= 4; m++) {
@@ -1517,13 +1639,14 @@
   requestAnimationFrame(renderLoop);
 
   // ==========================================
-  // 7. EQUIPMENT, PRESETS, NOTEBOOK & QUIZ
+  // 7. CONTROLS, PRESETS, NOTEBOOK & QUIZ
   // ==========================================
   document.querySelectorAll('.vessel-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.vessel-btn').forEach(b => b.classList.remove('active-toggle'));
       btn.classList.add('active-toggle');
       state.vessel = btn.dataset.vessel;
+      evaluateChemistry();
     });
   });
 
@@ -1561,6 +1684,9 @@
     state.contents = [];
     state.bubbles = [];
     state.smokes = [];
+    state.burnerTemp = 25;
+    document.getElementById('burner-slider').value = 25;
+    document.getElementById('burner-val').textContent = '25 °C (Off)';
     evaluateChemistry();
   });
 
@@ -1573,7 +1699,6 @@
     this.textContent = state.soundOn ? '🔊 Sound: ON' : '🔇 Sound: OFF';
   });
 
-  // Preset Loader
   const PRESET_RECIPES = {
     neutralization: ['HCl', 'Phenolphthalein', 'NaOH'],
     golden_rain: ['PbNO32', 'KI'],
@@ -1588,7 +1713,7 @@
     iodine_starch: ['Starch', 'I2'],
     luminol_glow: ['Luminol', 'H2O2'],
     magnesium_burn: ['Mg'],
-    sulfur_acid: ['S', 'H2O'],
+    sulfur_acid: ['S'],
     barium_sulfate: ['BaCl2', 'Na2SO4']
   };
 
@@ -1602,7 +1727,7 @@
       const r = REAGENTS.find(item => item.id === id);
       if (r) state.contents.push({ ...r, amount: r.dose });
     });
-    if (key === 'magnesium_burn') {
+    if (key === 'magnesium_burn' || key === 'sulfur_acid') {
       state.burnerTemp = 450;
       document.getElementById('burner-slider').value = 450;
       document.getElementById('burner-val').textContent = '450 °C';
@@ -1611,7 +1736,6 @@
     e.target.value = '';
   });
 
-  // Notebook Logging
   document.getElementById('btn-log-exp').addEventListener('click', () => {
     if (state.contents.length === 0) return;
     const entry = {
@@ -1654,10 +1778,9 @@
     a.click();
   });
 
-  // Quiz Mode
   const QUIZ_QUESTIONS = [
     {
-      q: 'Which precipitate forms the bright yellow "Golden Rain" when Pb(NO₃)₂ reacts with KI?',
+      q: 'Which precipitate forms the bright canary-yellow "Golden Rain" when Pb(NO₃)₂ reacts with KI?',
       opts: ['Lead(II) iodide (PbI₂)', 'Potassium nitrate (KNO₃)', 'Lead(II) oxide (PbO)', 'Silver iodide (AgI)'],
       ans: 0
     },
@@ -1668,11 +1791,11 @@
     },
     {
       q: 'What color does Phenolphthalein turn in a basic (alkaline) NaOH solution?',
-      opts: ['Colorless', 'Bright Yellow', 'Magenta / Pink', 'Deep Blue'],
+      opts: ['Colorless', 'Bright Yellow', 'Bright Pink / Magenta', 'Deep Blue'],
       ans: 2
     },
     {
-      q: 'Which reddish-brown toxic gas evolves when Copper reacts with concentrated Nitric Acid?',
+      q: 'Which reddish-brown gas evolves when Copper reacts with concentrated Nitric Acid?',
       opts: ['Ammonia (NH₃)', 'Carbon dioxide (CO₂)', 'Nitrogen dioxide (NO₂)', 'Chlorine (Cl₂)'],
       ans: 2
     },
@@ -1717,7 +1840,6 @@
     document.getElementById('quiz-modal').style.display = 'flex';
   });
 
-  // Initial Boot
   renderReagents();
   evaluateChemistry();
 </script>
